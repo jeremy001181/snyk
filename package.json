@@ -21,7 +21,9 @@
     "check-tests": "! grep 'test\\.only' test/*.test.js -n",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "snyk-auth": "node cli auth $SNYK_API_KEY",
-    "snyk-auth-windows": "node cli auth %SNYK_API_KEY%"
+    "snyk-auth-windows": "node cli auth %SNYK_API_KEY%",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "security",
@@ -62,7 +64,8 @@
     "tempfile": "^2.0.0",
     "then-fs": "^2.0.0",
     "undefsafe": "^2.0.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "jscs": "^3.0.0",
